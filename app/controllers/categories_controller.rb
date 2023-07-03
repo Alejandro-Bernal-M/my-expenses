@@ -1,31 +1,32 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[ show edit update destroy ]
 
-  # GET /categories or /categories.json
+  # GET users/:user_id/categories or /categories.json
   def index
-    @categories = Category.all
+    @categories = Category.where(user_id: current_user.id)
   end
 
-  # GET /categories/1 or /categories/1.json
+  # GET users/:user_id/categories/1 or users/:user_id/categories/1.json
   def show
   end
 
-  # GET /categories/new
+  # GET users/:user_id/categories/new
   def new
     @category = Category.new
   end
 
-  # GET /categories/1/edit
+  # GET users/:user_id/categories/1/edit
   def edit
   end
 
-  # POST /categories or /categories.json
+  # POST users/:user_id/categories or /categories.json
   def create
     @category = Category.new(category_params)
+    @category.user = current_user
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to category_url(@category), notice: "Category was successfully created." }
+        format.html { redirect_to user_category_path(user_id: current_user.id, id: @category.id), notice: "Category was successfully created." }
         format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -34,11 +35,11 @@ class CategoriesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /categories/1 or /categories/1.json
+  # PATCH/PUT users/:user_id/categories/1 or /categories/1.json
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to category_url(@category), notice: "Category was successfully updated." }
+        format.html { redirect_to user_category_path(user_id: current_user.id, id: @category.id), notice: "Category was successfully updated." }
         format.json { render :show, status: :ok, location: @category }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -47,12 +48,12 @@ class CategoriesController < ApplicationController
     end
   end
 
-  # DELETE /categories/1 or /categories/1.json
+  # DELETE users/:user_id/categories/1 or /categories/1.json
   def destroy
     @category.destroy
 
     respond_to do |format|
-      format.html { redirect_to categories_url, notice: "Category was successfully destroyed." }
+      format.html { redirect_to user_categories_path, notice: "Category was successfully destroyed." }
       format.json { head :no_content }
     end
   end
