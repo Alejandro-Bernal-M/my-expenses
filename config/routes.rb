@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :records
-  resources :categories
-  resources :users
+  resources :users do
+    resources :categories do
+      resources :records
+    end
+  end
+  # resources :records
+  # resources :categories
+  # resources :users
   
   root 'home#index'
 end
