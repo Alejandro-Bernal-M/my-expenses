@@ -3,10 +3,11 @@ class CreateCategories < ActiveRecord::Migration[7.0]
     create_table :categories do |t|
       t.string :name
       t.string :icon
+      t.bigint :user_id
 
       t.timestamps
     end
 
-    foreign_key :categories, :users
+    add_foreign_key :categories, :users
   end
 end

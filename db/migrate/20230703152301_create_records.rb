@@ -8,6 +8,6 @@ class CreateRecords < ActiveRecord::Migration[7.0]
       t.timestamps
     end
 
-    foreign_key :records, :users, column: :author_id
+    add_foreign_key :records, :users, column: :author_id
   end
 end
