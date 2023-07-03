@@ -20,7 +20,12 @@
 
   <div>
     <%= form.label :icon, style: "display: block" %>
-    <%= form.text_field :icon %>
+    <% Category::ICONS.each do |icon| %>
+        <label>
+          <%= form.radio_button :icon, icon %>
+          <%= image_tag("icons/#{icon}", class: "icon") %>
+        </label>
+    <% end %>
   </div>
 
   <div>
