@@ -1,10 +1,11 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_category, only: %i[ show edit update destroy ]
+  include CategoriesHelper
 
-  # GET users/:user_id/categories or /categories.json
+  # GET users/:user_id/categories or users/:user_id/categories.json
   def index
-    @categories = Category.where(user_id: current_user.id)
+    @categories = Category.includes(:records, :user).where(user_id: current_user.id)
   end
 
   # GET users/:user_id/categories/1 or users/:user_id/categories/1.json
