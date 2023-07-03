@@ -5,7 +5,7 @@ class RecordsController < ApplicationController
   # GET /records or /records.json
   def index
     @category = Category.find(params[:category_id])
-    @records = Record.includes(:author, :category).where(author_id: current_user.id, category_id: params[:category_id])
+    @records = Record.includes(:author, :category).where(author_id: current_user.id, category_id: params[:category_id]).order(created_at: :desc)
   end
 
   # GET /records/1 or /records/1.json
