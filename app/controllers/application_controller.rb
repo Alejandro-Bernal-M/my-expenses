@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :update_allowed_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    user_categories_path(current_user)
+    user_path(current_user)
   end
 
   protected

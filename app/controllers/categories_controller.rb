@@ -52,6 +52,7 @@ class CategoriesController < ApplicationController
 
   # DELETE users/:user_id/categories/1 or /categories/1.json
   def destroy
+    @category.records.destroy_all
     @category.destroy
 
     respond_to do |format|
