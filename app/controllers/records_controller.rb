@@ -1,9 +1,11 @@
 class RecordsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_record, only: %i[ show edit update destroy ]
 
   # GET /records or /records.json
   def index
-    @records = Record.where(author_id: current_user.id)
+    @category = Category.find(params[:category_id])
+    @records = Record.includes(:author, :category).where(author_id: current_user.id, category_id: params[:category_id])
   end
 
   # GET /records/1 or /records/1.json
@@ -22,10 +24,12 @@ class RecordsController < ApplicationController
   # POST /records or /records.json
   def create
     @record = Record.new(record_params)
+    @record.author = current_user
+    @record.category = Category.find(params[:category_id])
 
     respond_to do |format|
       if @record.save
-        format.html { redirect_to record_url(@record), notice: "Record was successfully created." }
+        format.html { redirect_to user_category_records_path(@record), notice: "Record was successfully created." }
         format.json { render :show, status: :created, location: @record }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +42,7 @@ class RecordsController < ApplicationController
   def update
     respond_to do |format|
       if @record.update(record_params)
-        format.html { redirect_to record_url(@record), notice: "Record was successfully updated." }
+        format.html { redirect_to user_category_records_path(@record), notice: "Record was successfully updated." }
         format.json { render :show, status: :ok, location: @record }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +56,7 @@ class RecordsController < ApplicationController
     @record.destroy
 
     respond_to do |format|
-      format.html { redirect_to records_url, notice: "Record was successfully destroyed." }
+      format.html { redirect_to user_category_records_path, notice: "Record was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -65,6 +69,6 @@ class RecordsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def record_params
-      params.require(:record).permit(:name, :author_id, :amount)
+      params.require(:record).permit(:name, :amount)
     end
 end
