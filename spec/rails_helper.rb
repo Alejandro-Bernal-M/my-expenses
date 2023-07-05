@@ -63,4 +63,3 @@ RSpec.configure do |config|
 end
 
 # using capybara with chromiun
-Capybara.default_driver = :selenium_chrome
