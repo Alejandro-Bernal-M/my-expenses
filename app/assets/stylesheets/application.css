@@ -13,12 +13,12 @@
  *= require_tree .
  *= require_self
  */
- @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 
 @font-face {
   font-family: 'proxima-nova';
-  src: font-url('Proxima-Nova-Font.otf') format('opentype');
-  font-weight: light;
+  src: url('../fonts/Proxima-Nova-Font.otf') format('opentype');
+  font-weight: lighter;
   font-style: normal;
 }
 
@@ -28,17 +28,18 @@
   --var-color-text: #434b54;
   --var-color-background: #d4d4d4;
   --var-general-font: 'proxima-nova', 'monserrat';
-  --var-title-font: 'Courgette', cursive;;
+  --var-title-font: 'Courgette', cursive;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: var(--var-general-font);
 }
 
-body, html {
+body,
+html {
   height: 100%;
 }
 
@@ -47,7 +48,7 @@ h2 {
 }
 
 .notice {
-  color: white
+  color: white;
 }
 
 .alert {
@@ -141,7 +142,7 @@ h2 {
   align-items: center;
 }
 
-.field > input{
+.field > input {
   width: 95%;
   height: 60px;
   background-color: white;
@@ -153,7 +154,7 @@ h2 {
 }
 
 .fields-container .field:last-child > input {
-  border:  none;
+  border: none;
 }
 
 .forgot-password {
@@ -208,7 +209,7 @@ h2 {
   display: block;
 }
 
-.not-show{
+.not-show {
   display: none !important;
 }
 
@@ -257,6 +258,10 @@ h2 {
   padding: 6px;
 }
 
+.category-holder > a {
+  color: var(--var-color-text);
+}
+
 .popup > div > a {
   color: white;
   text-decoration: none;
@@ -300,10 +305,6 @@ h2 {
   text-decoration: none;
 }
 
-.category-holder > a {
-  color: var(--var-color-text);
-}
-
 .category,
 .record {
   display: flex;
@@ -344,7 +345,7 @@ h2 {
   font-weight: bold;
 }
 
-.new-btn-holder{
+.new-btn-holder {
   background-color: var(--var-color-second);
   height: 95px;
   width: 100%;
@@ -430,7 +431,7 @@ h2 {
   text-align: center;
   margin-top: 1rem;
   display: block;
-  color: var(--var-color-text)
+  color: var(--var-color-text);
 }
 
 .category-details {

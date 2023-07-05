@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Record, type: :model do
-  let(:author) { User.create(name: 'Test User', email: 'test@test.com', password:'password') }
+  let(:author) { User.create(name: 'Test User', email: 'test@test.com', password: 'password') }
   let(:category) { Category.create(name: 'Test Category') }
-  let(:record) { Record.new(name: 'Test Record', amount: 100, author: author, category: category) }
+  let(:record) { Record.new(name: 'Test Record', amount: 100, author:, category:) }
 
   it 'is valid with valid attributes' do
     expect(record).to be_valid
