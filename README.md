@@ -57,6 +57,14 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- Live Demo -->
+
+## 🚀 Live Demo <a name="live-demo">
+
+[Video presentation on loom](https://www.loom.com/share/4abc77bff7f94928ba50c1880058cf9f?sid=2e1e430a-eaeb-4a13-9736-6e9dfb46cb6e)
+
+[Live demo on render](https://my-expenses-9hir.onrender.com)
+
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
@@ -141,6 +149,7 @@ I would like to thank
 - [Microverse](https://www.microverse.org/) for the opportunity.
 - Code Reviewers.
 - [Gregoire Vella on Behance](https://www.behance.net/gregoirevella) for the design.
+- [Icons.es](https://www.iconos8.es) for all the icons.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
