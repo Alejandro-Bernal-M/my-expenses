@@ -1,6 +1,10 @@
-<h1>New category</h1>
-
 <%= form_with model: @category, url: user_categories_path, method: :post  do |form| %>
+  <div class='blue-header header-large'>
+    <%= link_to image_tag('left-arrow.png'), :back, class: 'back-btn' %>
+    <h1>New category</h1>
+    <%= form.submit 'Create' , class: 'login-btn'%>
+  </div>
+
   <% if @category.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
@@ -13,30 +17,18 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class= 'field'>
+    <%= form.text_field :name, placeholder: 'Name' %>
   </div>
 
-  <div>
-    <%= form.label :icon, "Select an Icon" %>
+  <p class='select-icon-text'>Select an Icon</p>
+  <div class='select-icon' >
     <% Category::ICONS.each do |icon| %>
-        <label>
+        <label class= 'icon-label'>
           <%= form.radio_button :icon, icon %>
           <%= image_tag("icons/#{icon}", class: "icon") %>
         </label>
     <% end %>
   </div>
 
-
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>
-
-
-<br>
-
-<div>
-  <%= link_to "Back to categories", user_categories_path %>
-</div>

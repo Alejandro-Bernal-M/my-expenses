@@ -1,14 +1,18 @@
-<h1>Categories</h1>
-<%= link_to 'Sign out', destroy_user_session_path, data: {turbo_method: :delete} %>
+<div class='blue-header header-large'>
+  <%= image_tag('menu.png', class:'menu')  %>
+    <%# <%= link_to 'Sign out', destroy_user_session_path, data: {turbo_method: :delete} %> 
+    <%# <%= link_to "Go to user details", user_path(current_user) %> 
+  </span>
+  <h1>Categories</h1>
+  <span> icon </span>
+</div>
 <div id="categories">
   <% @categories.each do |category| %>
-    <%= render category %>
-    <p>
-      <%= link_to "See records for this category", user_category_records_path(user_id: current_user.id, category_id:category.id) %>
-      <%= link_to "Show this category", user_category_path(user_id: current_user.id, id: category.id) %>
-    </p>
+    <div class = 'category-holder'>
+      <%= link_to (render category), user_category_records_path(user_id: current_user.id, category_id:category.id), class: 'category' %>
+    </div>
   <% end %>
 </div>
-
-<%= link_to "New category", new_user_category_path %>
-<%= link_to "Go to user details", user_path(current_user) %>
+<div class='new-btn-holder'>
+  <%= link_to "New category", new_user_category_path, class: 'btn btn-new' %>
+</div>

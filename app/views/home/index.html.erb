@@ -1,3 +1,5 @@
-<%= link_to 'Sign up', new_user_registration_path %>
-<%= link_to 'Log in', new_user_session_path %>
-Welcome to my expenses app!
+<section class = 'homepage'>
+  <h1 class= 'main-title'>Welcome to my expenses app!</h1>
+  <%= link_to 'Log in', new_user_session_path, class: 'login' %>
+  <%= link_to 'Sign up', new_user_registration_path, class: 'signup' %>
+</section>

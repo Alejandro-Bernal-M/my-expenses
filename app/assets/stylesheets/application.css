@@ -13,3 +13,405 @@
  *= require_tree .
  *= require_self
  */
+
+@font-face {
+  font-family: 'proxima-nova';
+  src: font-url('Proxima-Nova-Font.otf') format('opentype');
+  font-weight: light;
+  font-style: normal;
+}
+
+:root {
+  --var-color-main: #3778c2;
+  --var-color-second: #5fb523;
+  --var-color-text: #434b54;
+  --var-color-background: #d4d4d4;
+  --var-general-font: 'proxima-nova', sans-serif;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--var-general-font);
+}
+
+body, html {
+  height: 100%;
+}
+
+h2 {
+  text-align: center;
+}
+
+.notice {
+  color: white
+}
+
+.alert {
+  color: red;
+}
+
+.notice,
+.alert {
+  width: 100%;
+  background-color: var(--var-color-main);
+}
+
+.homepage {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-title {
+  font-size: 2rem;
+  font-weight: 300;
+  text-align: center;
+  margin: 60% auto;
+  font-family: var(--var-general-font);
+}
+
+.login,
+.signup {
+  width: 80%;
+  height: 50px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: var(--var-general-font);
+  font-size: 1.2rem;
+  color: var(--var-color-text);
+}
+
+.login {
+  background-color: var(--var-color-main);
+  color: white;
+}
+
+.login-btn {
+  background: none;
+  color: white;
+  border: none;
+  font-size: 1.1rem;
+}
+
+.new_user,
+.edit_user {
+  width: 100%;
+  height: 90%;
+}
+
+.form-container {
+  width: 100%;
+  height: 100%;
+  background-color: var(--var-color-background);
+  padding-top: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.fields-container {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--var-color-text);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.field {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.field > input{
+  width: 95%;
+  height: 60px;
+  background-color: white;
+  border: none;
+  outline: none;
+  padding: 5px;
+  border-bottom: 1px solid var(--var-color-text);
+  font-size: 1.1rem;
+}
+
+.fields-container .field:last-child > input {
+  border:  none;
+}
+
+.forgot-password {
+  text-align: center;
+  color: var(--var-color-text);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.blue-header {
+  background-color: var(--var-color-main);
+  padding: 1rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.blue-header h1 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+.header-large {
+  height: 100px;
+}
+
+.menu {
+  width: 40px;
+  height: 40px;
+}
+
+.popup {
+  opacity: 0;
+  width: 60%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  background: linear-gradient(0deg, var(--var-color-main), var(--var-color-text));
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 40px;
+  color: white;
+  z-index: 3;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.popup.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.close-popup {
+  position: relative;
+  left: 140px;
+  top: -30px;
+  width: 30px;
+  height: 30px;
+}
+
+.popup > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.popup-image {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1px solid white;
+  padding: 6px;
+}
+
+.popup > div > a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.image-header-holder {
+  background-color: white;
+  height: 65px;
+  width: 65px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#categories,
+#records,
+.user-show {
+  background-color: var(--var-color-background);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: auto;
+  min-height: 72vh;
+  padding: 1rem 0;
+}
+
+.category-holder,
+.record-holder {
+  width: 95%;
+  height: 100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #e6e6e6;
+  background-color: white;
+  text-decoration: none;
+}
+
+.category-holder > a {
+  color: var(--var-color-text);
+}
+
+.category,
+.record {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: var(--var-color-text);
+  text-decoration: none;
+  flex-wrap: wrap;
+  background-color: white;
+  height: 100%;
+}
+
+.category-icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 1.5rem;
+}
+
+.category-name {
+  text-transform: capitalize;
+  width: 40%;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 17px;
+}
+
+.category-date {
+  font-size: 13px;
+  position: relative;
+  top: 26px;
+}
+
+.category-amount {
+  font-weight: bold;
+}
+
+.new-btn-holder{
+  background-color: var(--var-color-second);
+  height: 95px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-new {
+  background-color: var(--var-color-second);
+  color: white;
+  border: 1px solid white;
+  height: 60px;
+  width: 80%;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-btn {
+  color: white;
+  text-decoration: none;
+}
+
+.back-btn > img {
+  height: 30px;
+  width: 30px;
+}
+
+.user-show {
+  padding: 1rem;
+}
+
+.user-show > p {
+  font-size: 23px;
+}
+
+.user-show-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: auto;
+  padding: 1rem;
+}
+
+.user-show-categories > li {
+  background-color: white;
+  height: 50px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.link {
+  color: var(--var-color-text);
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.leave-blank {
+  font-size: 0.8rem;
+}
+
+.select-icon {
+  width: 85%;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.select-icon-text {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 1rem;
+  display: block;
+  color: var(--var-color-text)
+}
+
+.category-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 50vh;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+}

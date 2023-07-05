@@ -1,23 +1,22 @@
-<p>
-  <strong>Name:</strong>
-  <%= current_user.name %>
-</p>
-
-<p> Your categories: </p>
-  <% if current_user.categories.any? %>
-  <ul>
-    <% current_user.categories.each do |category| %>
-     <li> <%= category.name%> </li>
+<div class='blue-header header-large'>
+  <%= link_to image_tag('left-arrow.png'), user_categories_path(current_user), class: 'back-btn' %>
+  <h1><%= current_user.name %></h1>
+  <%= button_to "Edit", edit_user_registration_path(current_user), method: :get ,class: 'login-btn'  %> 
+</div>
+<div class='user-show'>
+  <p> Your categories: </p>
+    <% if current_user.categories.any? %>
+    <ul class= 'user-show-categories'>
+      <% current_user.categories.each do |category| %>
+      <li> <%= category.name%> </li>
+      <% end %>
+    </ul>
+    <% else %>
+      <p> You have no categories yet. </p>
     <% end %>
-  </ul>
-  <% else %>
-    <p> You have no categories yet. </p>
-  <% end %>
+  <%= link_to 'Expand categories', user_categories_path(current_user), class: 'link' %>
+</div>
 
-<%= link_to 'Expand categories', user_categories_path(current_user) %>
-<%= link_to 'Add a new category', new_user_category_path(user_id: current_user.id) %>
-
-<div>
-  <%= link_to "Edit this user", edit_user_registration_path(current_user) %> 
-  <%= link_to 'Sign out', destroy_user_session_path, data: {turbo_method: :delete} %>
+<div class='new-btn-holder'>
+  <%= link_to "New category", new_user_category_path(current_user), class: 'btn btn-new' %>
 </div>

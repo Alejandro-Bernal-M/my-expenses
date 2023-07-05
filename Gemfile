@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
+# letter opener for development
+gem 'letter_opener'
 
 # authentication with devise
 gem 'devise'
