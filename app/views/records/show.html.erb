@@ -1,0 +1,11 @@
+<div class='blue-header header-large'>
+  <%= link_to image_tag('left-arrow.png'), :back, class: 'back-btn' %>
+  <h1> Record details </h1>
+  <%= link_to "Edit", edit_user_category_record_path(user_id: current_user.id, category_id: params[:category_id], id: @record.id), class: 'login-btn' %>
+</div>
+
+<div class= 'category-details'>
+  <%= render @record %>
+
+  <%= link_to "Destroy this record", user_category_record_path(user_id: params[:user_id],category_id: params[:category_id], id:@record.id ), data: {turbo_method: :delete}, class: 'link' %>
+</div>

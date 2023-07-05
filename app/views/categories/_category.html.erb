@@ -1,0 +1,12 @@
+<div id="<%= dom_id category %>" class= 'category'>
+  <%= image_tag("icons/#{category.icon}", class: 'category-icon') %>
+
+  <div class= 'category-name'>
+    <p class='category-name-name'><%= category.name %></p>
+    <p class= 'category-date'><%= category.created_at.strftime('%d %b %Y') %></p>
+  </div>
+
+  <p class= 'category-amount'>
+    $<%= total_amount(category)%>
+  </p>
+</div>

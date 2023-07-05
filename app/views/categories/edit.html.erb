@@ -1,0 +1,34 @@
+<%= form_with model: @category, url: user_category_path, method: :patch  do |form| %>
+  <div class='blue-header header-large'>
+    <%= link_to image_tag('left-arrow.png'), :back, class: 'back-btn' %>
+    <h1>Edit category</h1>
+    <%= form.submit 'update' , class: 'login-btn'%>
+  </div>
+
+  <% if @category.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+        <% @category.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class= 'field'>
+    <%= form.text_field :name, placeholder: 'Name' %>
+  </div>
+
+  <p class='select-icon-text'>Select an Icon</p>
+  <div class='select-icon' >
+    <% Category::ICONS.each do |icon| %>
+        <label class= 'icon-label'>
+          <%= form.radio_button :icon, icon %>
+          <%= image_tag("icons/#{icon}", class: "icon") %>
+        </label>
+    <% end %>
+  </div>
+
+<% end %>

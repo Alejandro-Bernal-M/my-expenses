@@ -1,0 +1,25 @@
+<%= form_with model: @record, url: user_category_records_path, method: :post do |form| %>
+  <div class='blue-header header-large'>
+    <%= link_to image_tag('left-arrow.png'), :back, class: 'back-btn' %>
+    <h1>New Record</h1>
+    <%= form.submit 'Create' , class: 'login-btn'%>
+  </div>
+  <% if @record.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@record.errors.count, "error") %> prohibited this record from being saved:</h2>
+      <ul>
+        <% @record.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class= 'field'>
+    <%= form.text_field :name, placeholder: 'Name' %>
+  </div>
+
+  <div class= 'field'>
+    <%= form.text_field :amount, placeholder: '$ Amount' %>
+  </div>
+<% end %>

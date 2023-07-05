@@ -1,0 +1,16 @@
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <div class='blue-header'> 
+    <%= link_to image_tag('left-arrow.png'), root_path, class: 'back-btn' %>
+    <h2>Forgot your password?</h2>
+    <%= f.submit "Next", class: 'login-btn' %>
+  </div>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class='form-container'>
+    <div class='fields-container'>
+      <div class="field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:'email' %>
+      </div>
+    </div>
+  </div>
+
+<% end %>
