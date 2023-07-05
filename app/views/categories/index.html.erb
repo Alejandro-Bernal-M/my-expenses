@@ -1,10 +1,11 @@
 <div class='blue-header header-large'>
   <%= image_tag('menu.png', class:'menu')  %>
-  </span>
   <h1>Categories</h1>
-  <span> icon </span>
+  <%= image_tag('search.png', class:'search')  %>
+  
 </div>
-<div id="categories">
+<input class = 'search-input' type=text placeholder= 'Category to search' />
+<div id="categories" data-controller="categories">
   <% @categories.each do |category| %>
     <div class = 'category-holder'>
       <%= link_to (render category), user_category_records_path(user_id: current_user.id, category_id:category.id), class: 'category' %>
