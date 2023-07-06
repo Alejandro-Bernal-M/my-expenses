@@ -349,7 +349,7 @@ h2 {
 
 .new-btn-holder {
   background-color: var(--var-color-second);
-  height: 95px;
+  min-height: 95px;
   width: 100%;
   display: flex;
   justify-content: center;
