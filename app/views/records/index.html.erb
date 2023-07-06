@@ -5,22 +5,23 @@
     <%= image_tag("icons/#{@category.icon}") %>
   </div>
 </div>
-
-<div id="records">
-  <% if @records.any? %>
-    <% @records.each do |record| %>
+<div class='main-holder'>
+  <div id="records">
+    <% if @records.any? %>
+      <% @records.each do |record| %>
+        <div class = 'record-holder'>
+          <%= link_to (render record), user_category_record_path(user_id: current_user.id, category_id: record.category.id, id: record.id), class: 'record-holder' %>
+        </div>
+      <% end %>
+    <% else %>
       <div class = 'record-holder'>
-        <%= link_to (render record), user_category_record_path(user_id: current_user.id, category_id: record.category.id, id: record.id), class: 'record-holder' %>
+        <p> You have no records yet. </p>
       </div>
     <% end %>
-  <% else %>
-    <div class = 'record-holder'>
-      <p> You have no records yet. </p>
-    </div>
-  <% end %>
-  <%= link_to 'Details for this category', user_category_path(user_id: params[:user_id], id: params[:category_id]), class: 'link' %>
-</div>
+    <%= link_to 'Details for this category', user_category_path(user_id: params[:user_id], id: params[:category_id]), class: 'link' %>
+  </div>
 
-<div class='new-btn-holder'>
-  <%= link_to "New record", new_user_category_record_path, class: 'btn btn-new' %>
+  <div class='new-btn-holder'>
+    <%= link_to "New record", new_user_category_record_path, class: 'btn btn-new' %>
+  </div>
 </div>
