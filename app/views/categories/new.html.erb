@@ -1,12 +1,12 @@
 <%= form_with model: @category, url: user_categories_path, method: :post  do |form| %>
   <div class='blue-header header-large'>
-    <%= link_to image_tag('left-arrow.png'), :back, class: 'back-btn' %>
+    <%= link_to image_tag('left-arrow.png'), user_categories_path(current_user), class: 'back-btn' %>
     <h1>New category</h1>
     <%= form.submit 'Create' , class: 'login-btn'%>
   </div>
 
   <% if @category.errors.any? %>
-    <div style="color: red">
+    <div class='errors-container'>
       <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
       <ul>
