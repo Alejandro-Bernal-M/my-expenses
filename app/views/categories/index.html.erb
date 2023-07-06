@@ -5,13 +5,15 @@
   
 </div>
 <input class = 'search-input' type=text placeholder= 'Category to search' />
-<div id="categories" data-controller="categories">
-  <% @categories.each do |category| %>
-    <div class = 'category-holder'>
-      <%= link_to (render category), user_category_records_path(user_id: current_user.id, category_id:category.id), class: 'category' %>
-    </div>
-  <% end %>
-</div>
-<div class='new-btn-holder'>
-  <%= link_to "New category", new_user_category_path, class: 'btn btn-new' %>
+<div class='main-holder'>
+  <div id="categories" data-controller="categories">
+    <% @categories.each do |category| %>
+      <div class = 'category-holder'>
+        <%= link_to (render category), user_category_records_path(user_id: current_user.id, category_id:category.id), class: 'category' %>
+      </div>
+    <% end %>
+  </div>
+  <div class='new-btn-holder'>
+    <%= link_to "New category", new_user_category_path, class: 'btn btn-new' %>
+  </div>
 </div>
