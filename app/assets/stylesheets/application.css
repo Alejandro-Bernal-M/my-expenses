@@ -292,6 +292,10 @@ h2 {
   flex: 1;
 }
 
+.user-show {
+  min-height: calc(100vh - 195px);
+}
+
 .category-holder,
 .record-holder {
   width: 95%;
@@ -310,7 +314,7 @@ h2 {
 .category,
 .record {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
   color: var(--var-color-text);
@@ -448,7 +452,8 @@ h2 {
 
 .main-holder {
   width: 100%;
-  height: 100%;
+  height: auto;
+  min-height: calc(100vh - 95px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -458,4 +463,57 @@ h2 {
   color: red;
   font-size: 1rem;
   padding: 10px;
+}
+
+@media (width > 768px) {
+  .homepage {
+    max-height: 100vh;
+  }
+
+  .main-title {
+    font-size: 3rem;
+    margin: 10% 0;
+  }
+
+  .login, .signup {
+    max-width: 300px;
+  }
+
+  .fields-container,
+  .category,
+  .record,
+  .record-holder,
+  .category-holder {
+    width: 60%;
+  }
+
+  .login-btn,
+  .search,
+  .menu,
+  .icon-label,
+  .close-popup {
+    cursor: pointer;
+  }
+
+  .btn-new {
+    width: 50%;
+  }
+
+  .field > input, .field_with_errors > input:not([type='radio']),
+  .select-icon {
+    width: 60%;
+  }
+
+  .record-holder > div,
+  .category-holder > a {
+    width: 100%;
+  }
+
+  .popup {
+    width: 250px;
+  }
+
+  .user-show {
+    padding: 1rem 5rem;
+  }
 }
